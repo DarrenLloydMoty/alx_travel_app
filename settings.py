@@ -9,10 +9,8 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
-# Read the .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
 # Installed apps (add these)
@@ -27,18 +25,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # add at the top of middleware list
     # other middleware...
     'django.middleware.common.CommonMiddleware',
-    # ...
 ]
 
 # CORS settings: allow all origins or specify
 CORS_ALLOWED_ORIGINS = [
-    # example:
     "http://localhost:3000",
-    # add your frontend URLs here
 ]
 
-# or to allow all origins (not recommended for production)
-# CORS_ALLOW_ALL_ORIGINS = True
 
 # REST Framework basic config (customize as needed)
 REST_FRAMEWORK = {
@@ -51,7 +44,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-# Database configuration for MySQL using environ
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
